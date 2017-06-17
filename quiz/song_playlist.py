@@ -13,7 +13,7 @@ def song_playlist(songs, max_size):
     subSongs = songs[1:]
     
     sortedSubSongs = sorted(subSongs, key = lambda s: s[2])
-    print(sortedSubSongs)
+    # print(sortedSubSongs)
     
     if songs[0][2] <= avail:
         res.append(songs[0][0])
