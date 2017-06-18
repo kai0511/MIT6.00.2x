@@ -10,8 +10,8 @@ def getAverage(die, numRolls, numTrials):
       - Returns the mean calculated to 3 decimal places
     """
     res = []
-    for _ in range(numRolls):
-        trial = [die.roll() for _ in range(numTrials)]
+    for _ in range(numTrials):
+        trial = [die.roll() for _ in range(numRolls)]
         
         count, tmp, maxValue = 1, trial[0], 1
         l = len(trial[1:])
@@ -20,8 +20,9 @@ def getAverage(die, numRolls, numTrials):
                 count += 1
                 if i == l-1:
                     maxValue = max(maxValue, count) 
-            else: 
+            else:
                 maxValue = max(maxValue, count)
+                tmp, count = trial[i+1], 1
                 
         res.append(maxValue)
     makeHistogram(res, 10, 'the longest run', 'frequency')
